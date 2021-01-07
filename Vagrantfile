@@ -52,13 +52,15 @@ $subnet ||= "172.18.8"
 $os ||= "ubuntu1804"
 $network_plugin ||= "flannel"
 # Setting multi_networking to true will install Multus: https://github.com/intel/multus-cni
-$multi_networking ||= false
+$multi_networking ||= "True"
 $download_run_once ||= "True"
 $download_force_cache ||= "True"
 # The first three nodes are etcd servers
 $etcd_instances ||= $num_instances
 # The first two nodes are kube masters
-$kube_master_instances ||= $num_instances == 1 ? $num_instances : ($num_instances - 1)
+#$kube_master_instances ||= $num_instances == 1 ? $num_instances : ($num_instances - 1)
+# The first  node is kube masters
+$kube_master_instances ||= "1"
 # All nodes are kube nodes
 $kube_node_instances ||= $num_instances
 # The following only works when using the libvirt provider
